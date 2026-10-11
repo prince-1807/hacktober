@@ -2,7 +2,7 @@
 
 > **Hacktoberfest 2026** • Hackathon and Coding Club (HnCC), BIT Sindri
 
-&lt;CAMPUS_CP&gt; is a high-performance web platform designed to consolidate, normalize, and showcase competitive programming (CP) performance across tech institutions in real time.
+;CAMPUS_CP; is a high-performance web platform designed to consolidate, normalize, and showcase competitive programming (CP) performance across tech institutions in real time.
 
 ---
 
@@ -12,7 +12,7 @@ At technical institutions, thousands of students actively solve data structures 
 ---
 
 ## 💡 Proposed Solution
-`<CAMPUS_CP>` bridges individual effort into a thriving campus tech culture. 
+`CAMPUS_CP` bridges individual effort into a thriving campus tech culture. 
 * **Weighted Composite Rating Model:** Merges contest ratings, submission volumes, and problem difficulties across 5 platforms into a fair **0–1000 campus rating**.
 * **6-Tier Segmented Leaderboards:** Instant filtering for 1st, 2nd, 3rd, 4th Year, an exclusive **Girls' Leaderboard** promoting STEM diversity, and an Overall Campus leaderboard.
 * **Stale-While-Revalidate (SWR) Caching:** Delivers lightning-fast page loading (<50ms) while keeping stats fresh asynchronously via worker queues without hitting third-party rate limits.

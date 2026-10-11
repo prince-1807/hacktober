@@ -1,4 +1,4 @@
-# ;CAMPUS_CP; : A Campus-Wide CP Leaderboard
+# CAMPUS_CP : A Campus-Wide CP Leaderboard
 
 > **Hacktoberfest 2026** • Hackathon and Coding Club (HnCC), BIT Sindri
 

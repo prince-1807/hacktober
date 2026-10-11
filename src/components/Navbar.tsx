@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Terminal, RefreshCw, UserPlus, ShieldCheck, ShieldAlert, LogOut } from 'lucide-react';
+import { Terminal, RefreshCw, UserPlus, ShieldCheck, ShieldAlert, LogOut, Calendar } from 'lucide-react';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -12,6 +12,7 @@ interface NavbarProps {
   isAdminMode: boolean;
   onOpenAdminAuth: () => void;
   onExitAdminMode: () => void;
+  onOpenContests?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -23,6 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   isAdminMode,
   onOpenAdminAuth,
   onExitAdminMode,
+  onOpenContests,
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-carbon-border bg-carbon-surface/90 backdrop-blur-md">
@@ -103,6 +105,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isSyncing ? 'Syncing...' : 'Sync'}
             </span>
           </button>
+
+          {/* Contests Hub Button */}
+          {onOpenContests && (
+            <button
+              onClick={onOpenContests}
+              title="View Live & Upcoming Platform Contests"
+              className="flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-carbon-card hover:bg-carbon-elevated border border-hacktober-500/40 text-hacktober-300 hover:text-white transition-all text-xs font-mono font-medium shadow-orange-glow-sm"
+            >
+              <Calendar className="w-3.5 h-3.5 text-hacktober-400" />
+              <span>Contests</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
+            </button>
+          )}
 
           {/* Register Coder CTA */}
           <button

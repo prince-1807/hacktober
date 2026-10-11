@@ -115,3 +115,25 @@ export interface LeaderboardResponse {
     sortOrder: SortOrder;
   };
 }
+
+export type ContestPlatform =
+  | 'CODEFORCES'
+  | 'LEETCODE'
+  | 'CODECHEF'
+  | 'ATCODER'
+  | 'GEEKSFORGEEKS'
+  | 'HACKERRANK';
+
+export interface ContestItem {
+  id: string;
+  title: string;
+  platform: ContestPlatform;
+  startTime: string; // ISO
+  endTime: string; // ISO
+  durationMinutes: number;
+  url: string;
+  status: 'LIVE' | 'UPCOMING';
+  phase?: string;
+  difficulty?: string;
+}
+

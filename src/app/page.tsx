@@ -16,12 +16,14 @@ import {
   AlertTriangle,
   Loader2,
   KeyRound,
+  Calendar,
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { RegisterModal } from '@/components/RegisterModal';
 import { AdminAuthModal } from '@/components/AdminAuthModal';
 import { ChangePasswordModal } from '@/components/ChangePasswordModal';
+import { ContestsModal } from '@/components/ContestsModal';
 import {
   StudentProfile,
   LeaderboardKPIs,
@@ -55,6 +57,7 @@ export default function CampusCPArena() {
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [adminToken, setAdminToken] = useState('admin2026');
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
+  const [isContestsOpen, setIsContestsOpen] = useState(false);
 
   // Deletion Confirmation State
   const [deleteCandidate, setDeleteCandidate] = useState<{
@@ -227,6 +230,7 @@ export default function CampusCPArena() {
         isAdminMode={isAdminMode}
         onOpenAdminAuth={() => setIsAdminAuthOpen(true)}
         onExitAdminMode={handleExitAdminMode}
+        onOpenContests={() => setIsContestsOpen(true)}
       />
 
       {/* Live Toast Notification */}
@@ -389,6 +393,37 @@ export default function CampusCPArena() {
           </div>
         </section>
 
+        {/* Quick Contest Tracker Strip */}
+        <section
+          onClick={() => setIsContestsOpen(true)}
+          className="p-3.5 px-4 rounded-xl bg-carbon-surface/90 border border-carbon-border hover:border-hacktober-500/50 transition-all cursor-pointer shadow-lg group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 backdrop-blur-sm"
+        >
+          <div className="flex items-center space-x-3">
+            <div className="p-2 rounded-lg bg-hacktober-500/10 border border-hacktober-500/30 text-hacktober-500 group-hover:scale-105 transition-transform shrink-0">
+              <Calendar className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-mono font-bold text-white group-hover:text-hacktober-400 transition-colors">
+                  Live &amp; Upcoming Coding Contests
+                </span>
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 flex items-center space-x-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Real-Time Feed</span>
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-400 font-sans">
+                Track rounds across Codeforces, LeetCode, CodeChef, AtCoder &amp; GeeksforGeeks in IST.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2 font-mono text-xs text-hacktober-400 group-hover:translate-x-1 transition-transform shrink-0">
+            <span>Explore Contests</span>
+            <span>&rarr;</span>
+          </div>
+        </section>
+
         {/* Main Leaderboard Section */}
         <section id="leaderboard-section" className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -535,6 +570,12 @@ export default function CampusCPArena() {
           setAdminToken(newKey);
           showToast('Moderator passcode updated successfully!');
         }}
+      />
+
+      {/* Live & Upcoming Contests Modal */}
+      <ContestsModal
+        isOpen={isContestsOpen}
+        onClose={() => setIsContestsOpen(false)}
       />
 
       {/* Delete Record Confirmation Modal */}

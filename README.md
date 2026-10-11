@@ -35,10 +35,10 @@ $$\text{Campus Score} = (0.35 \times S_{\text{CF}}) + (0.30 \times S_{\text{LC}}
 ---
 
 ## 👥 Team Details — Divine Lords
-* **Team Leader:** Bhaskar Kumar
+* **Team Leader:** Bhaskar Kumar(CSE,2K25)
 * **Member 2:** Prince Kumar Singh (Cyber Security, 2K25)
-* **Member 3:** Shivam Rana
-* **Member 4:** Mandal Ritesh Kumar
+* **Member 3:** Shivam Rana(IT,2K25)
+* **Member 4:** Mandal Ritesh Kumar(ECE,2K25)
 
 ---
 

@@ -83,11 +83,8 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
         {/* Form */}
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           <div>
-            <label className="block text-xs font-mono text-zinc-300 mb-1.5 flex items-center justify-between">
+            <label className="block text-xs font-mono text-zinc-300 mb-1.5">
               <span>Admin Passcode</span>
-              <span className="text-[10px] text-hacktober-400 font-mono">
-                Hint: admin2026
-              </span>
             </label>
             <div className="relative">
               <KeyRound className="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />

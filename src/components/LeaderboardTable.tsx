@@ -45,7 +45,7 @@ interface LeaderboardTableProps {
 
 const TABS: { id: LeaderboardTab; label: string; icon?: React.ReactNode; badge?: string }[] = [
   { id: 'all', label: 'Overall Campus' },
-  { id: 'year1', label: '1st Year', badge: '2024-28' },
+  { id: 'year1', label: '1st Year', badge: '26-29' },
   { id: 'year2', label: '2nd Year', badge: '2023-27' },
   { id: 'year3', label: '3rd Year', badge: '2022-26' },
   { id: 'year4', label: '4th Year', badge: '2021-25' },
@@ -58,16 +58,17 @@ const TABS: { id: LeaderboardTab; label: string; icon?: React.ReactNode; badge?:
 
 const BRANCH_OPTIONS = [
   { value: 'ALL', label: 'All Branches' },
-  { value: 'CSE', label: 'Computer Science (CSE)' },
-  { value: 'IT', label: 'Information Technology (IT)' },
-  { value: 'ECE', label: 'Electronics & Comm (ECE)' },
-  { value: 'EE', label: 'Electrical (EE)' },
-  { value: 'ME', label: 'Mechanical (ME)' },
-  { value: 'Civil', label: 'Civil Engineering' },
-  { value: 'Metallurgy', label: 'Metallurgical Engineering' },
-  { value: 'Chemical', label: 'Chemical Engineering' },
-  { value: 'Mining', label: 'Mining Engineering' },
-  { value: 'Production', label: 'Production Engineering' },
+  { value: 'CSE', label: 'CSE' },
+  { value: 'CSE (Cyber Security)', label: 'CSE (Cyber Security)' },
+  { value: 'IT', label: 'IT' },
+  { value: 'ECE', label: 'ECE' },
+  { value: 'EE', label: 'EE' },
+  { value: 'ME', label: 'ME' },
+  { value: 'Civil', label: 'Civil' },
+  { value: 'Metallurgy', label: 'Metallurgy' },
+  { value: 'Chemical', label: 'Chemical' },
+  { value: 'Mining', label: 'Mining' },
+  { value: 'Production', label: 'Production' },
 ];
 
 export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
@@ -407,7 +408,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                     {inspectStudent.name} ({inspectStudent.registrationNo})
                   </h3>
                   <p className="text-xs text-zinc-400 font-mono">
-                    {inspectStudent.branch} Engineering &bull; Year {inspectStudent.year}
+                    {inspectStudent.branch} &bull; Year {inspectStudent.year}
                   </p>
                 </div>
               </div>

@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     if (!branch || typeof branch !== 'string') {
       return NextResponse.json(
-        { success: false, error: 'Engineering branch selection is required.' },
+        { success: false, error: 'Branch selection is required.' },
         { status: 400 }
       );
     }

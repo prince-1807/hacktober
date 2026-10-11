@@ -2,23 +2,16 @@
 // Authenticates moderator and administrator access.
 
 import { NextRequest, NextResponse } from 'next/server';
-import { env } from '@/lib/env';
+import { verifyAdminPassword } from '@/lib/server/admin-auth';
 
 export const dynamic = 'force-dynamic';
-
-const VALID_PASSCODES = new Set([
-  'admin2026',
-  'bit_admin',
-  'moderator2026',
-  env.SYNC_TOKEN,
-]);
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { passcode } = body;
 
-    if (!passcode || !VALID_PASSCODES.has(String(passcode).trim())) {
+    if (!passcode || !verifyAdminPassword(String(passcode).trim())) {
       return NextResponse.json(
         {
           success: false,
@@ -30,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      token: 'admin2026',
+      token: String(passcode).trim(),
       message: 'Moderator access granted.',
     });
   } catch (error: unknown) {

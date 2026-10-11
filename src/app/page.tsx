@@ -15,11 +15,13 @@ import {
   Plus,
   AlertTriangle,
   Loader2,
+  KeyRound,
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { RegisterModal } from '@/components/RegisterModal';
 import { AdminAuthModal } from '@/components/AdminAuthModal';
+import { ChangePasswordModal } from '@/components/ChangePasswordModal';
 import {
   StudentProfile,
   LeaderboardKPIs,
@@ -52,6 +54,7 @@ export default function CampusCPArena() {
   const [isAdminAuthOpen, setIsAdminAuthOpen] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [adminToken, setAdminToken] = useState('admin2026');
+  const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
 
   // Deletion Confirmation State
   const [deleteCandidate, setDeleteCandidate] = useState<{
@@ -69,6 +72,10 @@ export default function CampusCPArena() {
       const stored = localStorage.getItem('campus_cp_admin_mode');
       if (stored === 'true') {
         setIsAdminMode(true);
+      }
+      const storedToken = localStorage.getItem('campus_cp_admin_token');
+      if (storedToken) {
+        setAdminToken(storedToken);
       }
     }
   }, []);
@@ -114,6 +121,7 @@ export default function CampusCPArena() {
     setAdminToken(token);
     if (typeof window !== 'undefined') {
       localStorage.setItem('campus_cp_admin_mode', 'true');
+      localStorage.setItem('campus_cp_admin_token', token);
     }
     showToast('Moderator mode activated. You can now add or delete coder records.');
   };
@@ -122,6 +130,7 @@ export default function CampusCPArena() {
     setIsAdminMode(false);
     if (typeof window !== 'undefined') {
       localStorage.removeItem('campus_cp_admin_mode');
+      localStorage.removeItem('campus_cp_admin_token');
     }
     showToast('Exited moderator mode. Returned to public view.');
   };
@@ -152,11 +161,16 @@ export default function CampusCPArena() {
   const confirmDeleteStudent = async () => {
     if (!deleteCandidate) return;
     setIsDeleting(true);
+    const activeToken =
+      (typeof window !== 'undefined' ? localStorage.getItem('campus_cp_admin_token') : null) ||
+      adminToken ||
+      'admin2026';
+
     try {
       const res = await fetch(`/api/students/${encodeURIComponent(deleteCandidate.id)}`, {
         method: 'DELETE',
         headers: {
-          'x-admin-key': adminToken || 'admin2026',
+          'x-admin-key': activeToken,
         },
       });
 
@@ -179,10 +193,15 @@ export default function CampusCPArena() {
     if (!window.confirm('Reset all leaderboard records to default student seed data?')) {
       return;
     }
+    const activeToken =
+      (typeof window !== 'undefined' ? localStorage.getItem('campus_cp_admin_token') : null) ||
+      adminToken ||
+      'admin2026';
+
     try {
       const res = await fetch('/api/admin/reset', {
         method: 'POST',
-        headers: { 'x-admin-key': adminToken || 'admin2026' },
+        headers: { 'x-admin-key': activeToken },
       });
       const json = await res.json();
       if (res.ok && json.success) {
@@ -254,6 +273,14 @@ export default function CampusCPArena() {
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Record</span>
+              </button>
+              <button
+                onClick={() => setIsChangePasswordOpen(true)}
+                title="Change Moderator Passcode"
+                className="px-3 py-1.5 rounded-lg bg-carbon-elevated hover:bg-zinc-800 text-amber-300 hover:text-amber-200 text-xs border border-amber-500/40 flex items-center space-x-1"
+              >
+                <KeyRound className="w-3.5 h-3.5" />
+                <span>Change Passcode</span>
               </button>
               <button
                 onClick={handleAdminReset}
@@ -503,6 +530,16 @@ export default function CampusCPArena() {
         isOpen={isAdminAuthOpen}
         onClose={() => setIsAdminAuthOpen(false)}
         onSuccess={handleAdminAuthSuccess}
+      />
+
+      {/* Change Password Modal */}
+      <ChangePasswordModal
+        isOpen={isChangePasswordOpen}
+        onClose={() => setIsChangePasswordOpen(false)}
+        onSuccess={(newKey) => {
+          setAdminToken(newKey);
+          showToast('Moderator passcode updated successfully!');
+        }}
       />
 
       {/* Delete Record Confirmation Modal */}

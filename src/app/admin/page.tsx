@@ -21,6 +21,7 @@ import {
   Cpu,
 } from 'lucide-react';
 import { RegisterModal } from '@/components/RegisterModal';
+import { ChangePasswordModal } from '@/components/ChangePasswordModal';
 import { StudentProfile, LeaderboardKPIs } from '@/types/campus-cp';
 
 export default function AdminDashboardPage() {
@@ -28,6 +29,7 @@ export default function AdminDashboardPage() {
   const [passcode, setPasscode] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
 
   // Admin Data State
   const [students, setStudents] = useState<StudentProfile[]>([]);
@@ -76,7 +78,10 @@ export default function AdminDashboardPage() {
       }
 
       setIsAuthenticated(true);
-      localStorage.setItem('campus_cp_admin_mode', 'true');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('campus_cp_admin_mode', 'true');
+        localStorage.setItem('campus_cp_admin_token', passcode);
+      }
       showToast('Welcome to the Moderator Console!');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Login failed.';
@@ -88,7 +93,10 @@ export default function AdminDashboardPage() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('campus_cp_admin_mode');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('campus_cp_admin_mode');
+      localStorage.removeItem('campus_cp_admin_token');
+    }
     showToast('Logged out of Moderator Console.');
   };
 
@@ -123,10 +131,15 @@ export default function AdminDashboardPage() {
     if (!deleteCandidate) return;
     setIsDeleting(true);
 
+    const adminKey =
+      (typeof window !== 'undefined' ? localStorage.getItem('campus_cp_admin_token') : null) ||
+      passcode ||
+      'admin2026';
+
     try {
       const res = await fetch(`/api/students/${encodeURIComponent(deleteCandidate.id)}`, {
         method: 'DELETE',
-        headers: { 'x-admin-key': 'admin2026' },
+        headers: { 'x-admin-key': adminKey },
       });
       const json = await res.json();
       if (res.ok && json.success) {
@@ -165,10 +178,15 @@ export default function AdminDashboardPage() {
   // Reset database to initial seed data
   const handleReset = async () => {
     if (!window.confirm('Reset all leaderboard records to default student seed data?')) return;
+    const adminKey =
+      (typeof window !== 'undefined' ? localStorage.getItem('campus_cp_admin_token') : null) ||
+      passcode ||
+      'admin2026';
+
     try {
       const res = await fetch('/api/admin/reset', {
         method: 'POST',
-        headers: { 'x-admin-key': 'admin2026' },
+        headers: { 'x-admin-key': adminKey },
       });
       const json = await res.json();
       if (res.ok && json.success) {
@@ -210,9 +228,8 @@ export default function AdminDashboardPage() {
 
           <form onSubmit={handleLogin} className="mt-5 space-y-4">
             <div>
-              <label className="block text-xs font-mono text-zinc-300 mb-1.5 flex items-center justify-between">
+              <label className="block text-xs font-mono text-zinc-300 mb-1.5">
                 <span>Enter Moderator Passcode</span>
-                <span className="text-[10px] text-hacktober-400 font-mono">Default: admin2026</span>
               </label>
               <div className="relative">
                 <KeyRound className="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -287,6 +304,13 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="flex items-center space-x-3 font-mono text-xs">
+            <button
+              onClick={() => setIsChangePasswordOpen(true)}
+              className="px-3 py-1.5 rounded-lg bg-carbon-card hover:bg-carbon-elevated border border-amber-500/40 text-amber-300 hover:text-amber-200 flex items-center space-x-1.5 transition-colors"
+            >
+              <KeyRound className="w-3.5 h-3.5" />
+              <span>Change Passcode</span>
+            </button>
             <Link
               href="/"
               className="px-3 py-1.5 rounded-lg bg-carbon-card hover:bg-carbon-elevated border border-carbon-border text-zinc-300 hover:text-white flex items-center space-x-1"
@@ -426,6 +450,7 @@ export default function AdminDashboardPage() {
             >
               <option value="ALL">All Branches</option>
               <option value="CSE">CSE</option>
+              <option value="CSE (Cyber Security)">CSE (Cyber Security)</option>
               <option value="IT">IT</option>
               <option value="ECE">ECE</option>
               <option value="EE">EE</option>
@@ -589,6 +614,15 @@ export default function AdminDashboardPage() {
         onSuccess={(name) => {
           showToast(`Student ${name} successfully registered.`);
           fetchAdminData();
+        }}
+      />
+
+      {/* Change Admin Passcode Modal */}
+      <ChangePasswordModal
+        isOpen={isChangePasswordOpen}
+        onClose={() => setIsChangePasswordOpen(false)}
+        onSuccess={() => {
+          showToast('Passcode updated successfully.');
         }}
       />
     </div>

@@ -4,6 +4,7 @@ export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
 
 export type Branch =
   | 'CSE'
+  | 'CSE (Cyber Security)'
   | 'IT'
   | 'ECE'
   | 'EE'

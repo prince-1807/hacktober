@@ -3,16 +3,9 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { resetLeaderboardToDefault } from '@/lib/server/cache-store';
-import { env } from '@/lib/env';
+import { verifyAdminPassword } from '@/lib/server/admin-auth';
 
 export const dynamic = 'force-dynamic';
-
-const VALID_ADMIN_KEYS = new Set([
-  'admin2026',
-  'bit_admin',
-  'moderator2026',
-  env.SYNC_TOKEN,
-]);
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,7 +13,7 @@ export async function POST(request: NextRequest) {
       request.headers.get('x-admin-key') ||
       request.nextUrl.searchParams.get('adminKey');
 
-    if (!adminKey || !VALID_ADMIN_KEYS.has(adminKey.trim())) {
+    if (!adminKey || !verifyAdminPassword(adminKey.trim())) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized: Admin authentication required.' },
         { status: 401 }

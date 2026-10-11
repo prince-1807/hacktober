@@ -635,7 +635,7 @@ const rawSeedList: SeedInput[] = [
     hrBadges: 'Silver Algorithms',
   },
 
-  // 1st Year (Batch 2024-28)
+  // 1st Year (Batch 26-29)
   {
     id: 'bit-2401007',
     registrationNo: '2401007',

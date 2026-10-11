@@ -2,7 +2,7 @@
 
 > **Hacktoberfest 2026** • Hackathon and Coding Club (HnCC), BIT Sindri
 
-;CAMPUS_CP; is a high-performance web platform designed to consolidate, normalize, and showcase competitive programming (CP) performance across tech institutions in real time.
+CAMPUS_CP is a high-performance web platform designed to consolidate, normalize, and showcase competitive programming (CP) performance across tech institutions in real time.
 
 ---
 

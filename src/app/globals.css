@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0A0A0C;
+  --color-surface: #121214;
+  --color-card: #161619;
+  --color-border: #27272A;
+  --color-orange: #FF6B00;
+  --color-orange-glow: rgba(255, 107, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #0e0907;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255, 107, 0, 0.38), transparent 70%),
+    radial-gradient(circle at 12% 25%, rgba(234, 88, 12, 0.22), transparent 42%),
+    radial-gradient(circle at 88% 45%, rgba(255, 138, 0, 0.18), transparent 48%),
+    radial-gradient(ellipse 70% 50% at 50% 110%, rgba(194, 65, 12, 0.25), transparent 70%),
+    linear-gradient(180deg, #130c08 0%, #0c0806 45%, #070505 100%);
+  background-attachment: fixed;
+  color: #F4F4F5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0D10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
+
+/* Monospace Rating & Code Elements */
+.font-mono-numbers {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Orange Glow Card Borders */
+.border-glow-orange {
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  box-shadow: 0 0 16px -2px rgba(255, 107, 0, 0.2);
+}
+
+.border-glow-orange:hover {
+  border-color: rgba(255, 107, 0, 0.65);
+  box-shadow: 0 0 24px -2px rgba(255, 107, 0, 0.35);
+}
+
+/* Gold Glow for Women in Tech Badge */
+.border-glow-gold {
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 16px -2px rgba(245, 158, 11, 0.25);
+}
+
+/* Terminal Glass Container */
+.terminal-card {
+  background: #121214;
+  border: 1px solid #27272A;
+  border-radius: 0.75rem;
+}
+
+/* Subtle carbon surface gradient */
+.carbon-gradient {
+  background: linear-gradient(180deg, #161619 0%, #111113 100%);
+}
+
+/* Hacktoberfest Brand Accent Gradient */
+.orange-gradient-text {
+  background: linear-gradient(135deg, #FF8C38 0%, #FF6B00 50%, #EA580C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

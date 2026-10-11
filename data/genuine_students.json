@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Rishabh Kumar",
+    "registrationNo": "2101050",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "rizzabh1244",
+    "lcHandle": "rishabh1244",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": ""
+  },
+  {
+    "name": "Sourav Kumar",
+    "registrationNo": "2101051",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "sourav_19_1",
+    "lcHandle": "sourav_kumar_19",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": "kumarsourav19101"
+  },
+  {
+    "name": "Shrestha Ghosh",
+    "registrationNo": "2101052",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "FEMALE",
+    "cfHandle": "",
+    "lcHandle": "ShresthaGhosh1612",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": "gmoumita114"
+  },
+  {
+    "name": "Bhaskar kumar",
+    "registrationNo": "2101053",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "bhaskarkumar1667",
+    "lcHandle": "Bhaskarkumar01",
+    "ccHandle": "",
+    "gfgHandle": "bhaskarkuh9l0",
+    "hrHandle": "Bhaskarkumar1667"
+  },
+  {
+    "name": "Chaitanya Anand",
+    "registrationNo": "2101054",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "whoschaitanya",
+    "lcHandle": "Chaitanya_1631",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": "chaitanyaanand21"
+  },
+  {
+    "name": "Dhruv Swarnkar",
+    "registrationNo": "2101055",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "dhruv15",
+    "lcHandle": "Dhruv7015",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": "dhruvswankar15"
+  },
+  {
+    "name": "Nikhil Kumar",
+    "registrationNo": "2101056",
+    "branch": "CSE",
+    "year": 4,
+    "gender": "MALE",
+    "cfHandle": "nikhil-codes",
+    "lcHandle": "nickhillcodes",
+    "ccHandle": "",
+    "gfgHandle": "",
+    "hrHandle": "sk1060680"
+  }
+]

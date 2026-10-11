@@ -1,0 +1,69 @@
+// Prisma Schema for Campus_CP (BIT Sindri CP Hub)
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+model Student {
+  id              String           @id @default(uuid())
+  registrationNo  String           @unique
+  name            String
+  branch          String           // CSE, IT, ECE, EE, ME, Civil, Metallurgy, Chemical, Mining, Production
+  year            Int              // 1, 2, 3, 4
+  gender          Gender           @default(OTHER)
+  avatarUrl       String?
+  compositeRating Float            @default(0.0)
+  totalSolved     Int              @default(0)
+  handles         PlatformHandle[]
+  snapshots       RatingSnapshot[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  @@index([compositeRating(sort: Desc)])
+  @@index([year, compositeRating(sort: Desc)])
+  @@index([branch])
+  @@index([gender])
+}
+
+model PlatformHandle {
+  id              String   @id @default(uuid())
+  studentId       String
+  student         Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  platform        String   // CODEFORCES, LEETCODE, CODECHEF, GEEKSFORGEEKS, HACKERRANK
+  handle          String
+  rating          Float    @default(0.0)
+  normalizedScore Float    @default(0.0) // 0 - 1000 scale
+  problemsSolved  Int      @default(0)
+  badgesOrStars   String?  // e.g., "5★", "Guardian", "6 Badges"
+  rankTitle       String?  // e.g., "Candidate Master", "Specialist"
+  lastFetchedAt   DateTime @default(now())
+
+  @@unique([studentId, platform])
+  @@index([platform, handle])
+}
+
+model RatingSnapshot {
+  id              String   @id @default(uuid())
+  studentId       String
+  student         Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  compositeRating Float
+  cfRating        Float    @default(0.0)
+  lcRating        Float    @default(0.0)
+  ccRating        Float    @default(0.0)
+  gfgScore        Float    @default(0.0)
+  hrScore         Float    @default(0.0)
+  recordedAt      DateTime @default(now())
+
+  @@index([studentId, recordedAt])
+}

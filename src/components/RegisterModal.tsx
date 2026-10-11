@@ -211,10 +211,10 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({
                   onChange={handleChange}
                   className="w-full px-3 py-2 rounded-md bg-carbon-card border border-carbon-border text-white focus:outline-none focus:border-hacktober-500 font-sans text-xs"
                 >
-                  <option value={1}>1st Year (Batch 26-29)</option>
-                  <option value={2}>2nd Year (Batch 2023-27)</option>
-                  <option value={3}>3rd Year (Batch 2022-26)</option>
-                  <option value={4}>4th Year (Batch 2021-25)</option>
+                  <option value={1}>1st Year (Batch 26-30)</option>
+                  <option value={2}>2nd Year (Batch 25-29)</option>
+                  <option value={3}>3rd Year (Batch 24-28)</option>
+                  <option value={4}>4th Year (Batch 23-27)</option>
                 </select>
               </div>
 

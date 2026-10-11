@@ -45,10 +45,10 @@ interface LeaderboardTableProps {
 
 const TABS: { id: LeaderboardTab; label: string; icon?: React.ReactNode; badge?: string }[] = [
   { id: 'all', label: 'Overall Campus' },
-  { id: 'year1', label: '1st Year', badge: '26-29' },
-  { id: 'year2', label: '2nd Year', badge: '2023-27' },
-  { id: 'year3', label: '3rd Year', badge: '2022-26' },
-  { id: 'year4', label: '4th Year', badge: '2021-25' },
+  { id: 'year1', label: '1st Year', badge: '26-30' },
+  { id: 'year2', label: '2nd Year', badge: '25-29' },
+  { id: 'year3', label: '3rd Year', badge: '24-28' },
+  { id: 'year4', label: '4th Year', badge: '23-27' },
   {
     id: 'girls',
     label: "Girls' Leaderboard",

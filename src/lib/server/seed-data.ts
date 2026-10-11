@@ -224,7 +224,7 @@ const rawSeedList: SeedInput[] = [
     hrBadges: 'Bronze Python',
   },
 
-  // 4th Year (Batch 2021-25)
+  // 4th Year (Batch 23-27)
   {
     id: 'bit-2101001',
     registrationNo: '2101001',
@@ -361,7 +361,7 @@ const rawSeedList: SeedInput[] = [
     hrBadges: 'Gold C++',
   },
 
-  // 3rd Year (Batch 2022-26)
+  // 3rd Year (Batch 24-28)
   {
     id: 'bit-2201018',
     registrationNo: '2201018',
@@ -498,7 +498,7 @@ const rawSeedList: SeedInput[] = [
     hrBadges: 'Silver Java',
   },
 
-  // 2nd Year (Batch 2023-27)
+  // 2nd Year (Batch 25-29)
   {
     id: 'bit-2301014',
     registrationNo: '2301014',
@@ -635,7 +635,7 @@ const rawSeedList: SeedInput[] = [
     hrBadges: 'Silver Algorithms',
   },
 
-  // 1st Year (Batch 26-29)
+  // 1st Year (Batch 26-30)
   {
     id: 'bit-2401007',
     registrationNo: '2401007',

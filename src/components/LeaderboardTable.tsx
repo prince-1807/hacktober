@@ -349,7 +349,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                     {/* HackerRank */}
                     <td className="py-3.5 px-3 font-mono">
                       <div className="text-zinc-200 font-medium">
-                        {student.platforms.hackerrank.rawRating} pts
+                        {student.platforms.hackerrank.rawRating ? `${student.platforms.hackerrank.rawRating} pts` : '—'}
                       </div>
                       <div className="text-[10px] text-zinc-500 truncate max-w-[100px]">
                         {student.platforms.hackerrank.badgeOrRank}
@@ -454,7 +454,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         Codeforces (35% Weight)
                       </div>
                       <div className="text-[11px] text-zinc-400">
-                        Handle: @{inspectStudent.platforms.codeforces.handle} &bull; Raw Rating: {inspectStudent.platforms.codeforces.rawRating}
+                        Handle: {inspectStudent.platforms.codeforces.handle ? `@${inspectStudent.platforms.codeforces.handle}` : 'Not Provided'} &bull; Raw Rating: {inspectStudent.platforms.codeforces.rawRating || '—'}
                       </div>
                     </div>
                     <div className="text-right">
@@ -474,7 +474,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         LeetCode (30% Weight)
                       </div>
                       <div className="text-[11px] text-zinc-400">
-                        Handle: @{inspectStudent.platforms.leetcode.handle} &bull; Rating: {inspectStudent.platforms.leetcode.rawRating} ({inspectStudent.platforms.leetcode.problemsSolved} Solved)
+                        Handle: {inspectStudent.platforms.leetcode.handle ? `@${inspectStudent.platforms.leetcode.handle}` : 'Not Provided'} &bull; Rating: {inspectStudent.platforms.leetcode.rawRating || '—'} ({inspectStudent.platforms.leetcode.problemsSolved} Solved)
                       </div>
                     </div>
                     <div className="text-right">
@@ -494,7 +494,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         CodeChef (20% Weight)
                       </div>
                       <div className="text-[11px] text-zinc-400">
-                        Handle: @{inspectStudent.platforms.codechef.handle} &bull; Rating: {inspectStudent.platforms.codechef.rawRating} ({inspectStudent.platforms.codechef.badgeOrRank})
+                        Handle: {inspectStudent.platforms.codechef.handle ? `@${inspectStudent.platforms.codechef.handle}` : 'Not Provided'} &bull; Rating: {inspectStudent.platforms.codechef.rawRating || '—'} ({inspectStudent.platforms.codechef.badgeOrRank})
                       </div>
                     </div>
                     <div className="text-right">
@@ -514,7 +514,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         GeeksforGeeks (10% Weight)
                       </div>
                       <div className="text-[11px] text-zinc-400">
-                        Handle: @{inspectStudent.platforms.geeksforgeeks.handle} &bull; Score: {inspectStudent.platforms.geeksforgeeks.rawRating}
+                        Handle: {inspectStudent.platforms.geeksforgeeks.handle ? `@${inspectStudent.platforms.geeksforgeeks.handle}` : 'Not Provided'} &bull; Score: {inspectStudent.platforms.geeksforgeeks.rawRating || '—'}
                       </div>
                     </div>
                     <div className="text-right">
@@ -534,7 +534,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         HackerRank (5% Weight)
                       </div>
                       <div className="text-[11px] text-zinc-400">
-                        Handle: @{inspectStudent.platforms.hackerrank.handle} &bull; Points: {inspectStudent.platforms.hackerrank.rawRating}
+                        Handle: {inspectStudent.platforms.hackerrank.handle ? `@${inspectStudent.platforms.hackerrank.handle}` : 'Not Provided'} &bull; Points: {inspectStudent.platforms.hackerrank.rawRating || '—'}
                       </div>
                     </div>
                     <div className="text-right">

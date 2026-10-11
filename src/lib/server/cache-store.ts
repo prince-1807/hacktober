@@ -83,8 +83,8 @@ function calculateKPIs(
 ): LeaderboardKPIs {
   const totalCoders = students.length;
   let highestScore = 0;
-  let topCoderName = 'Aman Kumar';
-  let topCoderBranch = 'CSE';
+  let topCoderName = students.length > 0 ? students[0].name : 'N/A';
+  let topCoderBranch = students.length > 0 ? students[0].branch : 'CSE';
   let totalProblemsSolved = 0;
 
   students.forEach((s) => {

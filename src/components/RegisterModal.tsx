@@ -161,7 +161,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({
                   type="text"
                   name="name"
                   required
-                  placeholder="e.g. Aman Kumar"
+                  placeholder="e.g. Bhaskar Kumar"
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-3 py-2 rounded-md bg-carbon-card border border-carbon-border text-white placeholder-zinc-500 focus:outline-none focus:border-hacktober-500 font-mono text-xs"

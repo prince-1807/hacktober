@@ -35,13 +35,13 @@ import {
 export default function CampusCPArena() {
   const [students, setStudents] = useState<StudentProfile[]>([]);
   const [kpis, setKpis] = useState<LeaderboardKPIs>({
-    totalCoders: 25,
-    highestScore: 846.5,
-    topCoderName: 'Aman Kumar',
+    totalCoders: 7,
+    highestScore: 220.98,
+    topCoderName: 'Sourav Kumar',
     topCoderBranch: 'CSE',
-    totalProblemsSolved: 9680,
+    totalProblemsSolved: 2155,
     cacheSource: 'IN_MEMORY_SWR',
-    cacheLatencyMs: 3,
+    cacheLatencyMs: 2,
     lastCacheUpdate: new Date().toISOString(),
   });
 

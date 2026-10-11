@@ -24,9 +24,9 @@ const config: Config = {
           glow: 'rgba(255, 107, 0, 0.4)',
         },
         carbon: {
-          bg: '#0A0A0C',
-          surface: '#121214',
-          card: '#161619',
+          bg: '#000000',
+          surface: '#0e0e11',
+          card: '#141417',
           elevated: '#1D1D21',
           border: '#27272A',
           subtle: '#1F1F23',

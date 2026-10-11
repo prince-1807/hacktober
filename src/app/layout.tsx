@@ -33,7 +33,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-carbon-bg text-carbon-text antialiased selection:bg-hacktober-500/30 selection:text-hacktober-300 min-h-screen">
+      <body className="bg-black text-carbon-text antialiased selection:bg-hacktober-500/30 selection:text-hacktober-300 min-h-screen">
         {children}
       </body>
     </html>

@@ -201,11 +201,7 @@ export default function AdminDashboardPage() {
   // Login Gate Screen
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative font-sans text-carbon-text">
-        {/* Background Ambient Orange Mesh Glows */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 -mt-32 w-[700px] h-[350px] bg-hacktober-500/25 blur-[120px] rounded-full pointer-events-none -z-10" />
-        <div className="fixed bottom-0 right-1/4 w-[500px] h-[500px] bg-amber-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
-
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative font-sans text-carbon-text bg-black">
         <div className="w-full max-w-md bg-carbon-surface/90 border border-hacktober-500/40 rounded-2xl shadow-2xl p-7 backdrop-blur-md">
           <div className="flex items-center space-x-3 pb-4 border-b border-carbon-border">
             <div className="p-2.5 rounded-xl bg-hacktober-500/15 border border-hacktober-500/30 text-hacktober-500">
@@ -277,12 +273,7 @@ export default function AdminDashboardPage() {
 
   // Authenticated Admin Console Screen
   return (
-    <div className="min-h-screen flex flex-col relative text-carbon-text font-sans">
-      {/* Background Ambient Orange Mesh Glows */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 -mt-32 w-[850px] h-[400px] bg-hacktober-500/25 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="fixed top-1/3 -left-40 w-[550px] h-[550px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none -z-10" />
-      <div className="fixed bottom-10 -right-40 w-[600px] h-[600px] bg-amber-600/20 blur-[160px] rounded-full pointer-events-none -z-10" />
-
+    <div className="min-h-screen flex flex-col relative text-carbon-text font-sans bg-black">
       {/* Admin Header Bar */}
       <header className="sticky top-0 z-40 w-full border-b border-carbon-border bg-carbon-surface/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">

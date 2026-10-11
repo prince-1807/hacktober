@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #0A0A0C;
-  --color-surface: #121214;
-  --color-card: #161619;
+  --color-bg: #000000;
+  --color-surface: #0e0e11;
+  --color-card: #141417;
   --color-border: #27272A;
   --color-orange: #FF6B00;
   --color-orange-glow: rgba(255, 107, 0, 0.4);
@@ -17,14 +17,7 @@
 
 html,
 body {
-  background-color: #0e0907;
-  background-image:
-    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255, 107, 0, 0.38), transparent 70%),
-    radial-gradient(circle at 12% 25%, rgba(234, 88, 12, 0.22), transparent 42%),
-    radial-gradient(circle at 88% 45%, rgba(255, 138, 0, 0.18), transparent 48%),
-    radial-gradient(ellipse 70% 50% at 50% 110%, rgba(194, 65, 12, 0.25), transparent 70%),
-    linear-gradient(180deg, #130c08 0%, #0c0806 45%, #070505 100%);
-  background-attachment: fixed;
+  background-color: #000000;
   color: #F4F4F5;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
